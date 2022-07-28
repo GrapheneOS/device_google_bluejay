@@ -20,7 +20,3 @@ on post-fs-data
 
     # Speaker amp permission
     chmod 644 /mnt/vendor/persist/audio/speaker.cal
-
-# Ensure Camera sound is enforced audible for JP SKU
-on property:ro.boot.hardware.sku=GB17L
-    setprop audio.camerasound.force true
