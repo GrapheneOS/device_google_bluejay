@@ -177,8 +177,7 @@ PRODUCT_PRODUCT_PROPERTIES +=\
 
 # Hide cutout overlays
 PRODUCT_PACKAGES += \
-    NoCutoutOverlay \
-    AvoidAppsInCutoutOverlay
+    NoCutoutOverlay
 
 # SKU specific RROs
 PRODUCT_PACKAGES += \
