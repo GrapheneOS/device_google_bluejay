@@ -1,0 +1,84 @@
+soong_namespace {}
+
+// Based on the output of adevtool
+
+// 9fc03d92791c582a04ad03e30c3942895f98e645850ecfc99eb5c6353b878a7e  bluejay-t2b1.221118.006-factory-9fc03d92.zip
+
+// 523aed722c2f5e3f6cfb8756b19b85c0a1d77042b4c789328ed4476745ee48d9  mali-temp/vendor/lib64/libgpudataproducer.so
+// be19033b3422d52bee7e48e52a3cef4aee5d84c4441bdd6f53a54133ef8514bc  mali-temp/vendor/lib64/libOpenCL-pixel.so
+// e6e0bcd868c66eede62a1acb06b28f47bb979b8aecd674f776e49868c878f3b3  mali-temp/vendor/lib64/libOpenCL.so
+// 5709a81308a9a1122a4eb95153256a54d6554d63c8066c227023f741cdb1580b  mali-temp/vendor/lib/libgpudataproducer.so
+// 284457659a32680b5e1eef2ee62f07db64fd1043977c9688fa665b540cfde344  mali-temp/vendor/lib/libOpenCL-pixel.so
+// d416244a597454afca21e347030a8fbd7961d01ed94e0a163751131fa908d768  mali-temp/vendor/lib/libOpenCL.so
+// 5be3b6f56042388d35096bd1b83d5e1984ffaaa5f3a3e4fb70470de342aaa5b2  mali-temp/vendor/lib64/egl/libGLES_mali.so
+// 4692ee5bf1797fe549c5e7a2b19cfa85a58f4bfb2ae1b5f96be59d32f4b01e51  mali-temp/vendor/lib64/hw/vulkan.mali.so
+// 70d08dfa32675822a7a37e95112ddb42397f37e5be6c1adeec83363f74c0f763  mali-temp/vendor/lib/egl/libGLES_mali.so
+// ee25c9957195580615a18e4dcd3a7c0a4741ecfc1698de3d11fdd67adecd6c99  mali-temp/vendor/lib/hw/vulkan.mali.so
+
+cc_prebuilt_library_shared {
+    name: "libgpudataproducer",
+    target: {
+        android_arm: { srcs: [ "vendor/lib/libgpudataproducer.so" ] },
+        android_arm64: { srcs: [ "vendor/lib64/libgpudataproducer.so" ] }
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+    prefer: true,
+    strip: { none: true },
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libGLES_mali",
+    relative_install_path: "egl",
+    target: {
+        android_arm: { srcs: [ "vendor/lib/egl/libGLES_mali.so" ] },
+        android_arm64: { srcs: [ "vendor/lib64/egl/libGLES_mali.so" ] }
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+    prefer: true,
+    strip: { none: true },
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vulkan.mali",
+    relative_install_path: "hw",
+    target: {
+        android_arm: { srcs: [ "vendor/lib/hw/vulkan.mali.so" ] },
+        android_arm64: { srcs: [ "vendor/lib64/hw/vulkan.mali.so" ] }
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+    prefer: true,
+    strip: { none: true },
+    soc_specific: true,
+}
+
+
+cc_prebuilt_library_shared {
+    name: "libOpenCL-pixel",
+    target: {
+        android_arm: { srcs: [ "vendor/lib/libOpenCL-pixel.so" ] },
+        android_arm64: { srcs: [ "vendor/lib64/libOpenCL-pixel.so" ] }
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+    prefer: true,
+    strip: { none: true },
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libOpenCL",
+    target: {
+        android_arm: { srcs: [ "vendor/lib/libOpenCL.so" ] },
+        android_arm64: { srcs: [ "vendor/lib64/libOpenCL.so" ] }
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+    prefer: true,
+    strip: { none: true },
+    soc_specific: true,
+}

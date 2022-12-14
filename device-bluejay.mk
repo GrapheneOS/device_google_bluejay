@@ -245,3 +245,13 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Enable adpf cpu hint session for SurfaceFlinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	debug.sf.enable_adpf_cpu_hint=true
+
+# Integration of Mali r38 libraries from QPR2 as QPR1 uses incompatible r36 libraries
+PRODUCT_SOONG_NAMESPACES += device/google/bluejay/mali-temp
+
+PRODUCT_PACKAGES += \
+    libGLES_mali \
+    libgpudataproducer \
+    libOpenCL \
+    libOpenCL-pixel \
+    vulkan.mali
